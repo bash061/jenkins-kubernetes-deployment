@@ -18,7 +18,9 @@ pipeline {
     stage('Build image') {
       steps{
         script {
+		docker.withServer('tcp://docker-home.subashbhandari.com:2376'){
           dockerImage = docker.build dockerimagename
+		  }
         }
       }
     }
